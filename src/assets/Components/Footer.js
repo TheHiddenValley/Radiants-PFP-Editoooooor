@@ -13,9 +13,8 @@ function Footer(props) {
         >
             <div
                 className="text-center p-3"
-                style={{ backgroundColor: "#EEEEEE", color: "black" }}
+                style={{ backgroundColor: "black", color: "black" }}
             >
-                by Ayush Karn 💜
             </div>
         </footer>
     );
