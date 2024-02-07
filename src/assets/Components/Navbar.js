@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../Images/logo.jpg";
+import logo from "../Images/logo.png";
 function Navbar(props) {
     return (
         <nav className="navbar bg-body-tertiary">
@@ -8,8 +8,8 @@ function Navbar(props) {
                     <img
                         src={logo}
                         alt="Logo"
-                        width="30"
-                        height="30"
+                        width="auto"
+                        height="10vh"
                         className="d-inline-block align-text-top"
                     />
                     &nbsp; Background Remover
