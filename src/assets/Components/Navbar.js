@@ -10,7 +10,7 @@ function Navbar(props) {
                         src={logo}
                         alt="Logo"
                         width="auto"
-                        height="10vh"
+                        height="22vh"
                         className="d-inline-block align-text-top"
                     />
                     &nbsp; Background Remover
