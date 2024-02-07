@@ -16,7 +16,6 @@ function Navbar(props) {
                         }}
                         className="d-inline-block align-text-top"
                     />
-                    &nbsp; Background Remover
                 </a>
             </div>
         </nav>
