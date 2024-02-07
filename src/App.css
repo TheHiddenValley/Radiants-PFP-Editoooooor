@@ -1,24 +1,35 @@
-.imageStyle{
+@import url('https://fonts.googleapis.com/css2?family=Mondwest:wght@400;700&family=Saira:wght@400;700&display=swap');
+
+.imageStyle {
   max-width: 35vw;
   max-height: 50vh;
   display: block;
 }
 
-.image-space{
+.image-space {
   height: 50vh;
 }
+
 @media only screen and (max-width: 768px) {
-  .imageStyle{  
+  .imageStyle {
     max-width: 80vw;
-    max-height:unset;
+    max-height: unset;
   }
-  .image-space{
+  .image-space {
     height: 25vh;
   }
 }
-.row{
+
+.row {
   min-height: calc(100vh - 56px);
 }
-.App{
+
+.App {
   overflow-x: hidden;
+}
+
+body {
+  font-family: 'Mondwest', sans-serif;
+  background-color: #FCE184;
+  color: #0F0E0C;
 }
