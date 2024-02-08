@@ -1,10 +1,11 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+
 function Main(props) {
     const [url, setUrl] = useState(null);
     const [selectedImage, setSelectedImage] = useState(null);
     const [imageUrl, setImageUrl] = useState(null);
     const [underProcess, setUnderProcess] = useState(false);
+
     useEffect(() => {
         if (selectedImage) {
             setImageUrl(URL.createObjectURL(selectedImage));
@@ -32,18 +33,44 @@ function Main(props) {
                 setUrl(URL.createObjectURL(finalResponse));
                 setUnderProcess(false);
             })
-            .catch();
+            .catch((error) => {
+                console.error("Error:", error);
+                setUnderProcess(false);
+            });
         console.log("clicked");
     }
 
     function handleDownload() {
-        let anc = document.createElement("a");
-        anc.href = url;
-        anc.download = "bg-removed.png";
-        document.body.append(anc);
-        anc.click();
-        document.body.removeChild(anc);
+        if (!url) return;
+
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+        const img = new Image();
+        img.onload = function () {
+            canvas.width = img.width;
+            canvas.height = img.height;
+
+            // Set background color
+            ctx.fillStyle = "#FCE184";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Draw image
+            ctx.drawImage(img, 0, 0);
+
+            // Convert canvas to data URL
+            const dataURL = canvas.toDataURL("image/png");
+
+            // Create download link
+            const link = document.createElement("a");
+            link.href = dataURL;
+            link.download = "bg-removed.png";
+
+            // Trigger download
+            link.click();
+        };
+        img.src = url;
     }
+
     return (
         <div className="row m-4 content">
             <div className="col-md-6 mt-4">
