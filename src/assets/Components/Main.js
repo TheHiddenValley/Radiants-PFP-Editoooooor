@@ -6,7 +6,7 @@ function Main(props) {
     const [imageUrl, setImageUrl] = useState(null);
     const [underProcess, setUnderProcess] = useState(false);
 
-const APIKEY = process.env.VERCEL_API_KEY;
+const APIKEY = "2JdLz6yTrNFhtKhD2XU95xtf";
     
     useEffect(() => {
         if (selectedImage) {
