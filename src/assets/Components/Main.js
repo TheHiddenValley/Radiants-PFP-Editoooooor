@@ -6,6 +6,8 @@ function Main(props) {
     const [imageUrl, setImageUrl] = useState(null);
     const [underProcess, setUnderProcess] = useState(false);
 
+const APIKEY = process.env.VERCEL_API_KEY;
+    
     useEffect(() => {
         if (selectedImage) {
             setImageUrl(URL.createObjectURL(selectedImage));
@@ -21,7 +23,7 @@ function Main(props) {
         fetch("https://api.remove.bg/v1.0/removebg", {
             method: "POST",
             headers: {
-                "X-Api-Key": process.env.VERCEL_API_KEY,
+                "X-Api-Key": APIKEY,
             },
             body: formData,
         })
