@@ -18,13 +18,11 @@ function Main(props) {
         const formData = new FormData();
         formData.append("image_file", img);
         formData.append("size", "auto");
-        fetch("https://api.remove.bg/v1.0/removebg", {
-            method: "POST",
-            headers: {
-                "X-Api-Key": "9k1CK1zKxPPcCom2dxGhDu4i",
-            },
-            body: formData,
-        })
+ fetch("https://api.remove.bg/v1.0/removebg", {
+    method: "POST",
+    headers: {
+        "X-Api-Key": process.env.VERCEL_API_KEY,
+    },
             .then(function (response) {
                 return response.blob();
             })
