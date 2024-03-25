@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import logo from "../Images/logo.png";
+import Liner from "../Images/Group_481923.png";
+import sun from "../Images/radiant-glow.png";
 
 function Main(props) {
     const [url, setUrl] = useState(null);
@@ -6,7 +9,7 @@ function Main(props) {
     const [imageUrl, setImageUrl] = useState(null);
     const [underProcess, setUnderProcess] = useState(false);
 
-const APIKEY = "2JdLz6yTrNFhtKhD2XU95xtf";
+    const APIKEY = "2JdLz6yTrNFhtKhD2XU95xtf";
     
     useEffect(() => {
         if (selectedImage) {
@@ -74,87 +77,98 @@ const APIKEY = "2JdLz6yTrNFhtKhD2XU95xtf";
     }
 
     return (
-        <div className="row m-4 content">
-            <div className="col-md-6 mt-4">
-                {selectedImage && (
-                    <img
-                        src={imageUrl}
-                        className="imageStyle mx-auto"
-                        alt="preview"
-                    />
-                )}
-                {!selectedImage && <div className="image-space"></div>}
-                <div className="m-4">
-                    <input
-                        className="form-control form-control"
-                        id="filepicker"
-                        type="file"
-                        onChange={(e) => setSelectedImage(e.target.files[0])}
-                        accept=".png, .jpg, .jpeg"
-                    />
+        <div className="container">
+            <div className="container-head">
+                <img src={Liner} alt="Divider" style={{ height: '10px', width: '1000px' }} /> 
+                    <h1>⠀⠀Radiate your PFP⠀⠀</h1>                    
+                <img src={Liner} alt="Divider" style={{ height: '10px', width: '1000px' }} /> 
+            </div>
+            <div className="row m-4 content">
+                <div className="col-md-6 mt-4" style={{ marginRight: "0" }}>
                     {selectedImage && (
+                        <div className="image-container">
+                            <img
+                                src={imageUrl}
+                                className="imageStyle mx-auto"
+                                alt="preview"
+                            />
+                        </div>
+                    )}
+                    {!selectedImage && <div className="image-space"></div>}
+                    <div className="m-4">
+                        <input
+                            className="form-control form-control"
+                            id="filepicker"
+                            type="file"
+                            onChange={(e) => setSelectedImage(e.target.files[0])}
+                            accept=".png, .jpg, .jpeg"
+                        />
+                        {selectedImage && (
+                            <button
+                                type="button"
+                                className="btn btn-primary mx-auto mt-4"
+                                style={{ display: "block" }}
+                                onClick={handleClick}
+                            >
+                                RADIATE <img src={sun} alt="sun" style={{ height: '20px', width: '20px' }} /> 
+                            </button>
+                        )}
+                        {!selectedImage && (
+                            <button
+                                type="button"
+                                className="btn btn-primary mx-auto mt-4"
+                                style={{ display: "block" }}
+                                disabled
+                            >
+                                Upload Image
+                            </button>
+                        )}
+                    </div>
+                </div>
+                <div className="col-md-6 mt-4" style={{ marginLeft: "0" }}>
+                    {underProcess && (
+                        <div className="progress">
+                            <div
+                                className="progress-bar progress-bar-striped progress-bar-animated"
+                                role="progressbar"
+                                aria-valuenow="100"
+                                aria-valuemin="0"
+                                aria-valuemax="100"
+                                style={{ width: "100%" }}
+                            ></div>
+                        </div>
+                    )}
+                    {url && (
+                        <div className="image-container" style={{ backgroundColor: "#FCE184" }}>
+                            <img
+                                src={url}
+                                className="imageStyle mx-auto"
+                                alt="preview"
+                            />
+                        </div>
+                    )}
+                    {!url && <div className="image-space"></div>}
+                    {url && (
                         <button
                             type="button"
                             className="btn btn-primary mx-auto mt-4"
                             style={{ display: "block" }}
-                            onClick={handleClick}
+                            onClick={handleDownload}
                         >
-                            Upload Image
+                            Download
                         </button>
                     )}
-                    {!selectedImage && (
+                    {!url && (
                         <button
                             type="button"
                             className="btn btn-primary mx-auto mt-4"
                             style={{ display: "block" }}
                             disabled
                         >
-                            Upload Image
+                            Download
                         </button>
                     )}
                 </div>
-            </div>
-            <div className="col-md-6 mt-4">
-                {underProcess && (
-                    <div class="progress">
-                        <div
-                            className="progress-bar progress-bar-striped progress-bar-animated"
-                            role="progressbar"
-                            aria-valuenow="100"
-                            aria-valuemin="0"
-                            aria-valuemax="100"
-                            style={{ width: "100%" }}
-                        ></div>
-                    </div>
-                )}
-                {url && (
-                    <img
-                        src={url}
-                        className="imageStyle mx-auto"
-                        alt="preview"
-                    />
-                )}
-                {!url && <div className="image-space"></div>}
-                {url && (
-                    <button
-                        type="button"
-                        className="btn btn-primary mx-auto mt-4"
-                        style={{ display: "block" }}
-                        onClick={handleDownload}
-                    >
-                        Download
-                    </button>
-                )}
-                {!url && (
-                    <button
-                        type="button"
-                        className="btn btn-primary mx-auto mt-4"
-                        style={{ display: "block" }}
-                        disabled
-                    >
-                        Download
-                    </button>
-                )}
             </div>
         </div>
     );

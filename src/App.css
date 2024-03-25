@@ -1,4 +1,60 @@
 @import url('https://fonts.googleapis.com/css2?family=Mondwest:wght@400;700&family=Saira:wght@400;700&display=swap');
+@font-face {
+  font-family: 'Joystix';
+  src: url('./joystix_monospace.ttf') format('truetype');
+}
+
+.container-head
+{
+  display: flex;
+  justify-content: center;
+  background-color: #0F0E0C;
+  width: 100%;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  text-align: center;
+  margin: 0px;
+  padding: 1em;
+  border-bottom:#fce184;
+  border-right: #0F0E0C;
+  border-left: #0F0E0C;
+  border-top:#fce184;
+  border-width: 1px;
+  border-style: solid;
+  overflow: hidden;
+  max-height: 3em;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 2em;
+  padding-left: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 2em;
+  background-color:#fce18430;
+  align-items: center;
+  border-color: #fce184;
+  border-width: 1px;
+  border-style: solid;
+  border-top: transparent;
+  width: 100%;
+  margin-bottom: 5em;
+  height: 100%;
+}
+
+.App-Navbar {
+  background-color: #FCE18490;
+  color: #FEF8E2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+}
 
 .imageStyle {
   max-width: 35vw;
@@ -25,13 +81,45 @@
 }
 
 .App {
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 body {
-  font-family: 'Mondwest', sans-serif;
-  background-color: #FCE184;
-  color: #0F0E0C;
+  font-family: 'Joystix', 'Mondwest', sans-serif;
+  background-color: #0F0E0C;
+  background-image: url('../src/background.png');
+  background-attachment: scroll;
+}
+
+.btn {
+  color:#fce184;
+  background-color: #0F0E0C70;
+  border-color: #fce184;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.btn-primary {
+  color:#fce184;
+  background-color: #0F0E0C50;
+  border-color: #fce184;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.btn:disabled {
+  color:#fce184;
+  background-color: #0F0E0C;
+  border-color: #fce184;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.form-control[type=file]:not(:disabled):not([readonly]) {
+  cursor: pointer;
+  background-color: #0F0E0C50;
+  color: #fce184;
+  border-color: #fce184;
 }
 
 .Generator {
@@ -56,7 +144,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
 }
 

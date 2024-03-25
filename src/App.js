@@ -5,7 +5,6 @@ import Footer from "./assets/Components/Footer";
 function App() {
     return (
         <div className="App">
-            <Navbar />
             <Main />
         </div>
     );
